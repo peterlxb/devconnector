@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./layout.css";
 
 class Landing extends Component {
@@ -17,18 +18,18 @@ class Landing extends Component {
                   创建开发者信息, 分享信息并从其他开发者获得帮助
                 </p>
                 <hr />
-                <a
-                  href="register.html"
+                <Link
+                  to="/register"
                   className="btn btn-lg btn-info mr-2 btn--animated"
                 >
                   注册
-                </a>
-                <a
-                  href="login.html"
+                </Link>
+                <Link
+                  to="/login"
                   className="btn btn-lg btn-light btn--animated"
                 >
                   登陆
-                </a>
+                </Link>
               </div>
             </div>
           </div>
