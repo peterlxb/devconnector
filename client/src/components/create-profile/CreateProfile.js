@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
+import { withRouter } from "react-router-dom";
 import TextFieldGroup from "../common/TextFieldGroup";
 import TextAreaField from "../common/TextAreaField";
 import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
+
+import { createProfile } from "../../actions/profileAction";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -31,6 +33,12 @@ class CreateProfile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -39,8 +47,24 @@ class CreateProfile extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram
+    };
 
-    console.log("submitted");
+    this.props.createProfile(profileData, this.props.history);
+    //console.log("submitted");
   }
 
   render() {
@@ -186,6 +210,7 @@ class CreateProfile extends Component {
                 />
                 <div className="md-3">
                   <button
+                    type="button"
                     onClick={() => {
                       this.setState(prevState => ({
                         displaySocialInput: !prevState.displaySocialInput
@@ -213,7 +238,7 @@ class CreateProfile extends Component {
 }
 
 CreateProfile.propTypes = {
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object,
   errors: PropTypes.object
 };
 
@@ -224,4 +249,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps, { createProfile })(
+  withRouter(CreateProfile)
+);
