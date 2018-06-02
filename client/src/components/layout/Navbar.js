@@ -17,6 +17,11 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
+        <li>
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
+          </Link>
+        </li>
         <li className="nav-item">
           <a
             href="#"
@@ -40,12 +45,12 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">
-            注册
+            Sign Up
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/login">
-            登陆
+            Login
           </Link>
         </li>
       </ul>
