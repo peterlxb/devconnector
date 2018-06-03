@@ -119,7 +119,7 @@ class EditProfile extends Component {
       instagram: this.state.instagram
     };
 
-    this.props.CreateProfile(profileData, this.props.history);
+    this.props.createProfile(profileData, this.props.history);
     //console.log("submitted");
   }
 
