@@ -37,7 +37,8 @@ class PostForm extends Component {
       name: user.name,
       avatar: user.avatar
     };
-    console.log(user);
+    console.log("Posts", newPost.avatar);
+
     this.props.addPost(newPost);
     this.setState({ text: "" });
   }
@@ -77,8 +78,8 @@ PostForm.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  errors: state.errors,
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, { addPost })(PostForm);
