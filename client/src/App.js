@@ -23,6 +23,7 @@ import store from "./store";
 import "./App.css";
 
 import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 
 import PrivateRoute from "./components/common/PrivateRoute";
 import NotFound from "./components/not-found/NotFound";
@@ -83,6 +84,7 @@ class App extends Component {
                 component={AddEducation}
               />
               <PrivateRoute exact path="/feed" component={Posts} />
+              <PrivateRoute exact path="/post/:id" component={Post} />
             </Switch>
             <Route exact path="/notfound" component={NotFound} />
           </div>
