@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import Profile from "../profile/Profile";
+import Profile from "components/profile/Profile";
 import Root from "Root";
 
 let wrapped;

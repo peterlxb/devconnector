@@ -4,17 +4,13 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
 
-const middleware = [thunk];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default ({ children, initialState = {} }) => {
   const store = createStore(
     rootReducer,
     initialState,
-    compose(
-      applyMiddleware(...middleware),
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+    composeEnhancers(applyMiddleware(thunk))
   );
   return <Provider store={store}>{children}</Provider>;
 };
