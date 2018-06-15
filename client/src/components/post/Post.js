@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 import PostItem from "../posts/PostItem";
 import CommentForm from "./CommentForm";
@@ -14,7 +14,7 @@ class Post extends Component {
   }
 
   render() {
-    const { post, loading, comments } = this.props.post;
+    const { post, loading } = this.props.post;
     let postContent;
 
     if (post === null || loading || Object.keys(post).length === 0) {
@@ -50,4 +50,7 @@ const mapStateToProps = state => ({
   post: state.post
 });
 
-export default connect(mapStateToProps, { getPost })(Post);
+export default connect(
+  mapStateToProps,
+  { getPost }
+)(Post);

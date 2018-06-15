@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Moment from "react-moment";
-
-import isEmpty from "../../validation/is-empty";
-import { spawn } from "child_process";
+//import isEmpty from "../../validation/is-empty";
 
 class ProfileCreds extends Component {
   render() {

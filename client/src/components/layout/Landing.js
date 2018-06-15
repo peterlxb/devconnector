@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import "./layout.css";
 
 class Landing extends Component {
@@ -12,8 +12,6 @@ class Landing extends Component {
   }
 
   render() {
-    const { isAuthenticated } = this.props.auth;
-
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">
@@ -32,13 +30,13 @@ class Landing extends Component {
                   to="/register"
                   className="btn btn-lg btn-info mr-2 btn--animated"
                 >
-                  注册
+                  Sign Up
                 </Link>
                 <Link
                   to="/login"
                   className="btn btn-lg btn-light btn--animated"
                 >
-                  登陆
+                  Login
                 </Link>
               </div>
             </div>
@@ -49,9 +47,9 @@ class Landing extends Component {
   }
 }
 
-Landing.propTypes = {
-  auth: PropTypes.object.isRequired
-};
+// Landing.propTypes = {
+//   auth: PropTypes.object.isRequired
+// };
 
 const mapStateToProps = state => ({
   auth: state.auth
