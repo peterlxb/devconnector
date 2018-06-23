@@ -20,7 +20,7 @@ import AddEducation from "./components/add-credentiala/AddEducation";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 
-import SoundMusic from "./components/music/Music";
+import SoundMovie from "./components/movie/Movie";
 
 import store from "./store";
 import "./App.css";
@@ -61,7 +61,7 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <div className="container">
             <Route exact path="/register" component={Register} />
-            <Route exact path="/music" component={SoundMusic} />
+            <Route exact path="/movie" component={SoundMovie} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profiles" component={Profiles} />
             <Route exact path="/profile/:handle" component={Profile} />
