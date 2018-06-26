@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./movie.css";
 
 class SoundMovie extends Component {
@@ -32,9 +33,9 @@ class SoundMovie extends Component {
                       <p className="cards__price-only">Only</p>
                       <p className="cards__price-value">$297</p>
                     </div>
-                    <a href="#popup" className="btn btn--white">
+                    <Link to="/" className="btn btn--white">
                       Book Now!
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -57,9 +58,9 @@ class SoundMovie extends Component {
                       <p className="cards__price-only">Only</p>
                       <p className="cards__price-value">$297</p>
                     </div>
-                    <a href="#popup" className="btn btn--white">
+                    <Link to="/" className="btn btn--white">
                       Book Now!
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -82,9 +83,9 @@ class SoundMovie extends Component {
                       <p className="cards__price-only">Only</p>
                       <p className="cards__price-value">$297</p>
                     </div>
-                    <a href="#popup" className="btn btn--white">
+                    <Link to="/" className="btn btn--white">
                       Book Now!
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -92,9 +93,9 @@ class SoundMovie extends Component {
           </div>
 
           <div className="u-center-text u-margin-top-huge">
-            <a href="#" className="btn btn--green">
+            <Link to="/" className="btn btn--green">
               Discover all movies
-            </a>
+            </Link>
           </div>
         </section>
       </div>

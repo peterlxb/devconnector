@@ -13,6 +13,9 @@ const validateLoginInput = require("../../validation/login");
 //Load User model
 const User = require("../../models/User");
 
+//Get authentication middle
+const Authentication = require("../../controllers/authentication");
+
 //@route GET api/users/test
 //@desc Tests user here
 //@access Public
@@ -69,55 +72,50 @@ router.post("/register", (req, res) => {
 //@route POST api/users/login
 //@desc Login User / Returning JWT Token
 //@access Public
-router.post("/login", (req, res) => {
-  //get validate msg
-  const { errors, isValid } = validateLoginInput(req.body);
-  //check vaidation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
-  const email = req.body.email;
-  const password = req.body.password;
-
-  //Find user by email
-  User.findOne({ email }).then(user => {
-    //Check for user
-    if (!user) {
-      errors.email = "User not found";
-      return res.status(404).json(errors);
-    }
-
-    //Check Password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
-        // User Matched
-
-        //Create JWT payload
-        const payload = {
-          id: user.id,
-          name: user.name,
-          avatar: user.avatar
-        };
-
-        // Sign Token
-        jwt.sign(
-          payload,
-          keys.secretOrKey,
-          { expiresIn: 3600 },
-          (err, token) => {
-            res.json({
-              success: true,
-              token: "Bearer " + token
-            });
-          }
-        );
-      } else {
-        errors.password = "password incorrect";
-        return res.status(400).json(errors);
-      }
-    });
-  });
+router.post("/login", Authentication.login, (req, res) => {
+  // //get validate msg
+  // const { errors, isValid } = validateLoginInput(req.body);
+  // //check vaidation
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
+  // const email = req.body.email;
+  // const password = req.body.password;
+  // //Find user by email
+  // User.findOne({ email }).then(user => {
+  //   //Check for user
+  //   if (!user) {
+  //     errors.email = "User not found";
+  //     return res.status(404).json(errors);
+  //   }
+  //   //Check Password
+  //   bcrypt.compare(password, user.password).then(isMatch => {
+  //     if (isMatch) {
+  //       // User Matched
+  //       //Create JWT payload
+  //       const payload = {
+  //         id: user.id,
+  //         name: user.name,
+  //         avatar: user.avatar
+  //       };
+  //       // Sign Token
+  //       jwt.sign(
+  //         payload,
+  //         keys.secretOrKey,
+  //         { expiresIn: 3600 },
+  //         (err, token) => {
+  //           res.json({
+  //             success: true,
+  //             token: "Bearer " + token
+  //           });
+  //         }
+  //       );
+  //     } else {
+  //       errors.password = "password incorrect";
+  //       return res.status(400).json(errors);
+  //     }
+  //   });
+  // });
 });
 
 //@route POST api/users/current
