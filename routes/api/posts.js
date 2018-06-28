@@ -15,13 +15,6 @@ const validatePostInput = require("../../validation/post");
 // requireAuth
 const requireAuth = passport.authenticate("jwt", { session: false });
 
-//@route GET api/posts/test
-//@desc Tests post here
-//@access Public
-router.get("/test", (req, res) => {
-  return res.json({ msg: "Posts Works" });
-});
-
 //@route GET api/posts
 //@desc Get posts
 //@access Public

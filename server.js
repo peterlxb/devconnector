@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Require basic routes
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
@@ -31,10 +32,6 @@ app.use(passport.initialize());
 
 //Passport config
 require("./config/passport")(passport);
-
-app.get("/", (req, res) => {
-  res.send("Hello, World");
-});
 
 //Use Routes middleware
 app.use("/api/users", users);

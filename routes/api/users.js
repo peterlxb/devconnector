@@ -16,13 +16,6 @@ const User = require("../../models/User");
 //Get authentication middle
 const Authentication = require("../../controllers/authentication");
 
-//@route GET api/users/test
-//@desc Tests user here
-//@access Public
-router.get("/test", (req, res) => {
-  return res.json({ msg: "Users Works" });
-});
-
 //@route POST api/users/register
 //@desc Tests user here
 //@access Public
