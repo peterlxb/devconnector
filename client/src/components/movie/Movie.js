@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./movie.css";
+import PieReact from "./PieReact";
+
+const data = [{ value: 1, name: "是" }, { value: 2, name: "否" }];
 
 class SoundMovie extends Component {
   render() {
@@ -96,6 +99,10 @@ class SoundMovie extends Component {
             <Link to="/" className="btn btn--green">
               Discover all movies
             </Link>
+          </div>
+
+          <div>
+            <PieReact data={data} />
           </div>
         </section>
       </div>
