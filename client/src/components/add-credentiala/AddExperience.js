@@ -163,6 +163,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addExperience })(
-  withRouter(AddExperience)
-);
+export default connect(
+  mapStateToProps,
+  { addExperience }
+)(withRouter(AddExperience));

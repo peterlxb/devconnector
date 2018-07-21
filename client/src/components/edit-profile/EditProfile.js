@@ -306,7 +306,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
-  createProfile,
-  getCurrentProfile
-})(withRouter(EditProfile));
+export default connect(
+  mapStateToProps,
+  {
+    createProfile,
+    getCurrentProfile
+  }
+)(withRouter(EditProfile));

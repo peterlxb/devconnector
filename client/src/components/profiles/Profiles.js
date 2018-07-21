@@ -33,7 +33,7 @@ class Profiles extends Component {
             <div className="col-md-12">
               <h1 className="display-4 text-center">Developer Profiles</h1>
               <p className="lead text-center">
-                Browsw and connect the developers
+                Browser and connect the developers
               </p>
               {profileItems}
             </div>
@@ -52,4 +52,7 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getProfiles })(Profiles);
+export default connect(
+  mapStateToProps,
+  { getProfiles }
+)(Profiles);
