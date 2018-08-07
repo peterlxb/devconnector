@@ -50,3 +50,13 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+.login-icon::before {
+  content: "\f0e0";
+  position: absolute;
+  font-family: "FontAwesome";
+  font-size: 25px;
+  padding-top: 2.5px;
+  padding-left: 2.5px;
+  color: #9b59b6;
+}
